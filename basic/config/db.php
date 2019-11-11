@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=http://www.raimondsl.id.lv;dbname=timeklaTehnologijas',
-    'username' => 'admin',
-    'password' => 'parole123',
+    'dsn' => 'mysql:host=localhost;dbname=timeklaTehnologijas',
+    'username' => 'root',
+    'password' => 'usbw',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

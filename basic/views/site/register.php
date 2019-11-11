@@ -1,45 +1,42 @@
 <?php
 
-/* @var $this yii\web\View */
-/* @var $form yii\bootstrap\ActiveForm */
-/* @var $model app\models\LoginForm */
-
 use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\widgets\ActiveForm;
 
-$this->title = 'Register';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $this yii\web\View */
+/* @var $model app\models\Users */
+/* @var $form ActiveForm */
 ?>
-<div class="container register-form">
-    <div class="form">
-        <div class="note">
-            <p>This is a simpleRegister Form made using Boostrap.</p>
-        </div>
+<div class="site-register">
+    <h1><?= Html::encode($this->title) ?></h1>
 
-        <div class="form-content">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input name="name" type="text" class="form-control" placeholder="Your Name *" value=""/>
-                    </div>
-                    <div class="form-group">
-                        <input name="phoneNum" type="text" class="form-control" placeholder="Phone Number *" value=""/>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-group">
-                        <input name="password" type="text" class="form-control" placeholder="Your Password *" value=""/>
-                    </div>
-                    <div class="form-group">
-                        <input name="password2" type="text" class="form-control" placeholder="Confirm Password *" value=""/>
-                    </div>
-                </div>
-            </div>
-            <button name="submitBtn" type="submit" class="btn btn-primary">Submit</button>
+    <p>Please fill out the following fields to login:</p>
+
+    <?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+
+    <?= $form->field($model, 'hashedPassword')->passwordInput() ?>
+
+
+    <div class="form-group">
+        <div class="col-lg-offset-1 col-lg-11">
+            <?= Html::submitButton('Register', ['class' => 'btn btn-primary', 'name' => 'register-button']) ?>
         </div>
     </div>
+
+    <?php ActiveForm::end(); ?>
+
+    <div class="col-lg-offset-1" style="color:#999;">
+        You may login with <strong>admin/admin</strong> or <strong>demo/demo</strong>.<br>
+        To modify the username/password, please check out the code <code>app\models\User::$users</code>.
+    </div>
 </div>
-<?php
-    if(isset($_POST['submitBtn']))
-        echo 'test123';
-?>
+<!--[-->
+<!--'id' => 'register-form',-->
+<!--'layout' => 'horizontal',-->
+<!--'fieldConfig' => [-->
+<!--'template' => "{label}\n<div class=\"col-lg-3\">{input}</div>\n<div class=\"col-lg-8\">{error}</div>",-->
+<!--'labelOptions' => ['class' => 'col-lg-1 control-label'],-->
+<!--],-->
+<!--]-->
